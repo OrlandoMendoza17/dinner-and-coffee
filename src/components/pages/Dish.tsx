@@ -1,4 +1,5 @@
-import React from 'react'
+import Link from 'next/link'
+import React, { useRef } from 'react'
 import { DishType } from '../../../types'
 
 type Props = {
@@ -11,19 +12,38 @@ const Dish = ({ dish }: Props) => {
 
   const inputID = `${dish.name.replace(" ", "-")}-${id}`
 
+  const option = useRef<HTMLInputElement>(null)
+  
+  const hancleClick = () => {
+    console.log(option.current)
+    if(option.current){
+      option.current.checked = true
+    }
+  }
+  
   return (
-    <label htmlFor={inputID} className="Dish" style={{ backgroundImage: `url(${image})` }}>
-      <input
-        id={inputID}
-        type="radio"
-        name="parrilla"
-        className=""
-      />
-      <div className={`overlay`} >
-        <h2>{name}</h2>
-        <p>{details.join(", ")}</p>
-      </div>
-    </label>
+    <Link href="/#Coffee">
+      <a>
+        <label
+          htmlFor={inputID}
+          className="Dish block"
+          style={{ backgroundImage: `url(${image})` }}
+          onClick={hancleClick}
+        >
+          <input
+            id={inputID}
+            ref={option}
+            type="radio"
+            name="parrilla"
+            className=""
+          />
+          <div className={`overlay`} >
+            <h2>{name}</h2>
+            <p>{details.join(", ")}</p>
+          </div>
+        </label>
+      </a>
+    </Link>
   )
 }
 

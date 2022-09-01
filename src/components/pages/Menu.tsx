@@ -34,7 +34,8 @@ const Menu = () => {
   return (
     <section id="Menu" className="Menu">
       <div className="main-container">
-        <h2 className="title">Elegir parrilla</h2>
+        <h2 className="title">Elección de Menú</h2>
+        <hr />
         <div className="dishes">
           {
             dishes.map(dish =>

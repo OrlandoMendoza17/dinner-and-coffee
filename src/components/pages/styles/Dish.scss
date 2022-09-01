@@ -10,7 +10,8 @@
     max-width: 992px;
 
     .title{
-      @apply text-white text-4xl font-bold pb-20; 
+      @include title;
+      @apply text-white;
     }
     
     .dishes{
@@ -37,6 +38,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  cursor: pointer;
 
   &.active {}
 
@@ -56,7 +58,7 @@
     transform: translateY(-100%);
     
     h2{
-      @apply text-3xl font-bold uppercase;
+      @apply text-2xl text-center sm:text-3xl font-bold uppercase;
     }
     
     p{
@@ -67,8 +69,9 @@
   input{
     display: none;
     
-    &:checked+.overlay {
-      transform: translateY(0%)
+    &:checked + .overlay {
+      transform: translateY(0%);
+      @apply bg-green-500;
     }
   }
 
@@ -76,5 +79,8 @@
     @apply shadow-cyan-300;
     // background-color: #3282B8;
     // transform: translateY(-100px);
+    .overlay {
+      transform: translateY(0%)
+    }
   }
 }

@@ -2,3 +2,6 @@
   @apply px-5 py-10;
   height: 100vh;
 }
+@mixin title() {
+  @apply text-4xl font-bold pb-14; 
+}
