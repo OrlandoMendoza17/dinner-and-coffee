@@ -1,0 +1,80 @@
+.Menu {
+  @apply px-5 py-28;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #11698E;
+  
+  .main-container{
+    max-width: 992px;
+
+    .title{
+      @apply text-white text-4xl font-bold pb-20; 
+    }
+    
+    .dishes{
+      display: grid;
+      grid-template-columns: minmax(200px, calc(992px / 2));
+      justify-content: center;
+      align-content: center;
+      gap: 20px;
+    
+      @screen md {
+        grid-template-columns: repeat(2, minmax(200px, calc(992px / 2)));
+      }
+    }
+  }
+}
+
+.Dish {
+  @apply bg-white rounded-lg drop-shadow-md;
+  overflow: hidden;
+
+  transition: .3s;
+  height: 250px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+  &.active {}
+
+  .overlay {
+    @apply text-white;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(191, 151, 66, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+    transform: translateY(-100%);
+    
+    h2{
+      @apply text-3xl font-bold uppercase;
+    }
+    
+    p{
+      @apply px-10 pt-5 text-center;
+    }
+  }
+
+  input{
+    display: none;
+    
+    &:checked+.overlay {
+      transform: translateY(0%)
+    }
+  }
+
+  &:hover {
+    @apply shadow-cyan-300;
+    // background-color: #3282B8;
+    // transform: translateY(-100px);
+  }
+}

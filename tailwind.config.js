@@ -53,6 +53,7 @@ module.exports = {
     //   black: "#1D2022",
     //   white: colors.white,
     // },
+   
     fontSize: {
       xs: ['1.2rem', { lineHeight: '1rem' }],
       sm: ['1.4rem', { lineHeight: '1.25rem' }],
@@ -81,5 +82,7 @@ module.exports = {
     },
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/forms")
+  ],
 }

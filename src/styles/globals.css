@@ -6,9 +6,11 @@
 
 html{
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 body{
   font-size: 1.6rem;
+  /* background-color: #0F4C75; */
 }
 
 html,
