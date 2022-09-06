@@ -1,26 +1,27 @@
-.Menu {
+.Menu,
+.Date {
   @apply px-5 py-28;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #11698E;
-  
-  .main-container{
+
+  .main-container {
     max-width: 992px;
 
-    .title{
+    .title {
       @include title;
       @apply text-white;
     }
-    
-    .dishes{
+
+    .options {
       display: grid;
       grid-template-columns: minmax(200px, calc(992px / 2));
       justify-content: center;
       align-content: center;
       gap: 20px;
-    
+
       @screen md {
         grid-template-columns: repeat(2, minmax(200px, calc(992px / 2)));
       }
@@ -28,10 +29,36 @@
   }
 }
 
-.Dish {
-  @apply bg-white rounded-lg drop-shadow-md;
+%overlay {
+  @apply text-white;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(191, 151, 66, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+
+  h2 {
+    @apply text-2xl text-center sm:text-3xl font-bold uppercase;
+  }
+
+  p {
+    @apply px-10 pt-5 text-center;
+  }
+}
+
+.Dish,
+.Option {
+  @apply rounded-lg drop-shadow-md;
   overflow: hidden;
 
+  background-color: rgb(103, 232, 249, .25);
+  
   transition: .3s;
   height: 250px;
   background-position: center;
@@ -43,44 +70,37 @@
   &.active {}
 
   .overlay {
-    @apply text-white;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgb(191, 151, 66, 0.85);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transition: .3s;
+    @extend %overlay;
     transform: translateY(-100%);
-    
-    h2{
-      @apply text-2xl text-center sm:text-3xl font-bold uppercase;
-    }
-    
-    p{
-      @apply px-10 pt-5 text-center;
-    }
   }
 
-  input{
+  input {
     display: none;
-    
-    &:checked + .overlay {
+
+    &:checked + .overlay, &:checked + .overlay-static {
       transform: translateY(0%);
-      @apply bg-green-500;
+      @apply bg-green-400;
     }
   }
 
   &:hover {
     @apply shadow-cyan-300;
+
     // background-color: #3282B8;
     // transform: translateY(-100px);
-    .overlay {
+    .overlay{
       transform: translateY(0%)
+    }
+  }
+}
+
+.Option {
+  .overlay-static {
+    @extend %overlay;
+    background-color: transparent;
+    
+    &:hover{
+      @apply bg-cyan-500;
     }
   }
 }
