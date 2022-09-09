@@ -1,36 +1,106 @@
-.Letter{
+.Letter {
   @include section;
-  height: 100vh;
-  
-  .main-container{
-    
-    
-    .title{
+  // height: 100vh;
+
+  .main-container {
+
+
+    .title {
       @apply text-black;
       text-align: start !important;
     }
-    
-    .content{
+
+    .content {
       // @apply py-32;
+      border: 1px solid #daddeb;
+      padding: 40px 40px;
+      border-radius: 10px;
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 50px;
+
+      transition: .3s;
+      position: relative;
+      
+      &::after{
+        position: absolute;
+        display: block;
+        content: "";
+        border-radius: 10px;
+        background-color: white;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        
+        transition: 1s;
+        // opacity: 1;
+      }
+      
+      &:hover {
+        background: rgb(114, 255, 255);
+        background: linear-gradient(270deg, #72ffff 0%, #00d7ff 50%, #0096ff 100%);
+
+        .BadgeOption {
+          transform: translateY(0px);
+
+          .label {
+            @apply border-cyan-400 text-black;
+          }
+        }
+        
+        &::after{
+          background-color: transparent;
+        }
+      }
     }
-    
+
+    #text {
+      position: relative;
+      z-index: 2;
+      div {
+        display: inline-block;
+
+        span {
+          transition: .3s;
+          display: inline-block;
+        }
+
+        &:hover span {
+          transform: translateY(-50px);
+        }
+      }
+
+      cursor: default;
+    }
+
+
     .BadgeOption {
-      .label{
-        @apply bg-cyan-200;
-      }
+      position: relative;
+      z-index: 2;
+      outline: none;
       
-      &:hover .label{
-        @apply bg-cyan-400;
+      .label {
+        @apply bg-transparent border-transparent;
+        border-width: 1px;
+        border-style: solid;
       }
-      
-      img{
-        transform: scale(.9);
+
+      transition: .3s;
+
+      &:hover .label {
+        @apply border-transparent text-white;
+        background-color: #0096ff;
+        color: white !important;
+        // transform: translateY(-20px);
+      }
+
+      transform: translateY(20px) scale(.9);
+
+      img {
+        transform: scale(.9) translateY(10px);
       }
     }
-    
   }
 }

@@ -16,6 +16,7 @@ export type OptionType = {
   inputName: "dinner" | "date",
   link: string,
   details?: string[],
+  value?: string,
   emoji?: string,
   image?: string,
 }

@@ -9,7 +9,7 @@ type Props = {
 
 const Option = ({ option }: Props) => {
 
-  const state = useContext(AppContext)
+  const { saveState } = useContext(AppContext)
 
   const { id, name, details, image, link, inputName } = option
 
@@ -21,13 +21,11 @@ const Option = ({ option }: Props) => {
     if (optionInput.current) {
 
       optionInput.current.checked = true
+      const { name } = optionInput.current
 
-      if (state) {
-        const { name } = optionInput.current
-        state.saveState({
-          [name]: name === "date" ? option.name : option
-        })
-      }
+      saveState({
+        [name]: name === "date" ? option.value : option
+      })
     }
   }
 

@@ -14,7 +14,7 @@ const Menu = () => {
       inputName: "dinner",
       emoji: "🍗🍟",
       details: ["Carne", "pollo", "chorizo", "chuleta", "papas"],
-      image: "https://i.imgur.com/xIbzUT3.jpg",
+      image: "https://i.imgur.com/rcA1Evd.jpg",
       link: "/#Coffee"
     },
     {
@@ -23,7 +23,7 @@ const Menu = () => {
       inputName: "dinner",
       emoji: "🥩🍟",
       details: ["Carne", "papas"],
-      image: "https://i.imgur.com/iywniLm.jpg",
+      image: "https://i.imgur.com/nbewAVB.jpg",
       link: "/#Coffee"
     },
     {
@@ -32,7 +32,7 @@ const Menu = () => {
       inputName: "dinner",
       emoji: "🍔🍟",
       details: ["150gr de Carne", "pepinillo", "lechga", "tomate", "cebolla morada", "papitas"],
-      image: "https://i.imgur.com/QSBEsVQ.jpg",
+      image: "https://i.imgur.com/fP34kLd.jpg",
       link: "/#Coffee"
     },
     {
@@ -41,7 +41,7 @@ const Menu = () => {
       inputName: "dinner",
       emoji: "🍔🍟",
       details: ["Pechuga Crispy", "pepinillo", "lechga", "tomate", "cebolla morada", "papitas"],
-      image: "https://i.imgur.com/ZOqGe3u.jpg",
+      image: "https://i.imgur.com/XePYkVl.jpg",
       link: "/#Coffee"
     },
   ]

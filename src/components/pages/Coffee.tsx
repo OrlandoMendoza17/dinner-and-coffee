@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/router'
 import { YesOrNoOption } from '../../../types'
 import YesOrNo from '../widgets/YesOrNo'
-import gaticoConJuguito from "@/assets/flork-cafe.webp"
-import gaticoConCorazones from "@/assets/flork-espada.png"
+import florkCafe from "@/assets/flork-cafe.webp"
+import florkEspada from "@/assets/flork-espada.png"
 
 const Coffee = () => {
 
@@ -15,23 +15,23 @@ const Coffee = () => {
     {
       type: "YES",
       label: "Me encataría!",
-      image: gaticoConJuguito,
+      image: florkCafe,
       inputName: "coffee",
       value: "true",
       action: () => {
         setSelected(true)
-        setTimeout(() => router.push("/#Date"), 5000)
+        setTimeout(() => router.push("/#Date"), 10000)
       }
     },
     {
       type: "NO",
       label: "No, solo la cena",
-      image: gaticoConCorazones,
+      image: florkEspada,
       inputName: "coffee",
       value: "false",
       action: () => {
-        alert("😭😭😭😭😭")
-        setSelected(true)
+        setSelected(false)
+        router.push("/#Date")
       }
     }
   ]
@@ -39,7 +39,10 @@ const Coffee = () => {
   return (
     <section id="Coffee" className={`Coffee ${selected && "active"}`}>
       <div className="coffee-cover">
-        <img src="https://i.imgur.com/RmYJOvs.png" alt="" />
+        <div className="overlay">
+          <p>&quot;Tengo ganas de invitarte un café pero tengo miedo de que se nos termine y no alcances a darte cuenta de que el café contigo es lo de menos&quot;</p>
+          <p className="pr-10 pt-10">- Emmanuel Zavala</p>
+        </div>
       </div>
       <YesOrNo question="Vamos por un ☕ antes de la cena?" options={options} />
     </section>

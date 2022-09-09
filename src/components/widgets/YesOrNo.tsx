@@ -36,10 +36,9 @@ const YesOrNo = ({ question, options }: Props) => {
                     src={image}
                     className="cursor-pointer"
                     alt="comiendo-cotufas"
-                    onClick={action}
                   />
                 </div>
-                <input className="hidden" onChange={handleChange} type="radio" value={value} name={inputName} id={type + inputName} />
+                <input className="hidden" onChange={handleChange} onClick={action} type="radio" value={value} name={inputName} id={type + inputName} />
                 <span className={`label`}>{label}</span>
               </label>
             )
