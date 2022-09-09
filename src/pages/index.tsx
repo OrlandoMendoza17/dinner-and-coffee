@@ -5,6 +5,9 @@ import Hero from '@/components/pages/Hero'
 import Menu from '@/components/pages/Menu'
 import Coffee from '@/components/pages/Coffee'
 import Date from '@/components/pages/Date'
+import Letter from '@/components/pages/Letter'
+
+import React from 'react'
 
 const Home: NextPage = () => {
 
@@ -22,6 +25,7 @@ const Home: NextPage = () => {
         <Menu />
         <Coffee />
         <Date />
+        <Letter />
 
       </main>
     </>

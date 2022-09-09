@@ -16,6 +16,8 @@ const Coffee = () => {
       type: "YES",
       label: "Me encataría!",
       image: gaticoConJuguito,
+      inputName: "coffee",
+      value: "true",
       action: () => {
         setSelected(true)
         setTimeout(() => router.push("/#Date"), 5000)
@@ -25,6 +27,8 @@ const Coffee = () => {
       type: "NO",
       label: "No, solo la cena",
       image: gaticoConCorazones,
+      inputName: "coffee",
+      value: "false",
       action: () => {
         alert("😭😭😭😭😭")
         setSelected(true)

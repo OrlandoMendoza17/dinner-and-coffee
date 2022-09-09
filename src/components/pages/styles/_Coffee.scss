@@ -30,5 +30,8 @@
       transform: translateX(0%);
     }
   }
-    
+ 
+  .YesOrNo .main-container label:first-of-type .badge img {
+    transform: translateY(25px) scale(.9);
+  }
 }

@@ -1,20 +1,9 @@
 .Menu,
 .Date {
-  @apply px-5 py-28;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include section;
   background-color: #11698E;
 
   .main-container {
-    max-width: 992px;
-
-    .title {
-      @include title;
-      @apply text-white;
-    }
-
     .options {
       display: grid;
       grid-template-columns: minmax(200px, calc(992px / 2));

@@ -1,20 +1,35 @@
-import React, { useRef } from 'react'
-import { OptionProps } from '../../../types'
+import React, { FormEvent, useContext, useRef } from 'react'
 import Link from 'next/link'
+import { OptionType } from '../../../types'
+import AppContext from 'context'
 
-const Option = ({ id, name, details, image, link, inputName }: OptionProps) => {
+type Props = {
+  option: OptionType,
+}
+
+const Option = ({ option }: Props) => {
+
+  const state = useContext(AppContext)
+
+  const { id, name, details, image, link, inputName } = option
+
   const inputID = `${name.replace(" ", "-")}-${id}`
 
-  const option = useRef<HTMLInputElement>(null)
+  const optionInput = useRef<HTMLInputElement>(null)
 
   const handleClick = () => {
-    console.log(option.current)
-    if (option.current) {
-      option.current.checked = true
+    if (optionInput.current) {
+
+      optionInput.current.checked = true
+
+      if (state) {
+        const { name } = optionInput.current
+        state.saveState({
+          [name]: name === "date" ? option.name : option
+        })
+      }
     }
   }
-
-  const props = { inputID, option, handleClick }
 
   return (
     <Link href={link}>
@@ -27,9 +42,10 @@ const Option = ({ id, name, details, image, link, inputName }: OptionProps) => {
         >
           <input
             id={inputID}
-            ref={option}
+            ref={optionInput}
             type="radio"
             name={inputName}
+            value={JSON.stringify(option)}
           />
           <div className={`overlay${!details ? "-static" : ""}`} >
             <h2>{name}</h2>

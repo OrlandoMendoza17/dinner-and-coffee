@@ -5,18 +5,32 @@ export type YesOrNoOption = {
   type: string,
   label: string,
   image: StaticImageData,
+  inputName: "accept" | "coffee"
+  value: "true" | "false",
   action: () => void,
 }
 
 export type OptionType = {
   id: number,
   name: string,
+  inputName: "dinner" | "date",
   link: string,
   details?: string[],
+  emoji?: string,
   image?: string,
 }
 
-interface OptionProps extends OptionType{
-  link: string,
-  inputName: string,
+export type InitialStateType = {
+  accept: boolean,
+  coffee: boolean,
+  dinner: OptionType,
+  date: string,
+}
+
+
+export type DTOsaveState = Partial<InitialStateType>
+
+export type AppContextType = {
+  state: InitialStateType,
+  saveState: (newState: DTOsaveState) => void
 }

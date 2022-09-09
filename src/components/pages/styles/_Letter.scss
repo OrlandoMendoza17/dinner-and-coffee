@@ -1,0 +1,36 @@
+.Letter{
+  @include section;
+  height: 100vh;
+  
+  .main-container{
+    
+    
+    .title{
+      @apply text-black;
+      text-align: start !important;
+    }
+    
+    .content{
+      // @apply py-32;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .BadgeOption {
+      .label{
+        @apply bg-cyan-200;
+      }
+      
+      &:hover .label{
+        @apply bg-cyan-400;
+      }
+      
+      img{
+        transform: scale(.9);
+      }
+    }
+    
+  }
+}

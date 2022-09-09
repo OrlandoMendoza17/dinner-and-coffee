@@ -1,0 +1,66 @@
+.YesOrNo{
+  @apply p-10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+ 
+  .title{
+    @include title;
+    @apply text-center;
+  }
+  
+  @screen md{
+    height: 100vh;
+  }
+  
+  .main-container{
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: center;
+    align-content: center;
+    gap: 50px;
+    
+    @screen md{
+      grid-template-columns: repeat(2, auto);
+    }
+  }
+}
+
+.BadgeOption{
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  
+  .badge{
+    @apply bg-white drop-shadow-2xl rounded-3xl p-5;
+  }
+  
+  .label{
+    @apply text-white text-xl leading-7 font-medium block p-5 rounded-xl cursor-pointer;
+    transition: .3s;
+  }
+  
+  &:first-of-type .label{
+    @apply bg-green-200;
+  }
+  &:nth-of-type(2) .label{
+    @apply bg-red-200;
+  }
+  
+  &:hover{
+    &:first-of-type .label{
+      @apply bg-green-500;
+    }
+    &:nth-of-type(2) .label{
+      @apply bg-red-500;
+    }
+  }
+  
+  &:first-of-type input:checked + .label{
+    @apply bg-green-500;
+  }
+  &:nth-of-type(2) input:checked + .label{
+    @apply bg-red-500;
+  }
+}

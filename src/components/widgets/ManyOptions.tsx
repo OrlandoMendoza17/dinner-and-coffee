@@ -1,16 +1,14 @@
-import React from 'react'
-import { OptionProps, OptionType } from '../../../types'
+import React, { FormEvent } from 'react'
+import { OptionType } from '../../../types'
 import Option from './Option'
 
 type Props = {
   options: OptionType[],
   type: string,
-  inputName: string,
   title: string,
 }
 
-const ManyOptions = ({ type, options, title, inputName }: Props) => {
-  const props = { inputName }
+const ManyOptions = ({ type, options, title }: Props) => {
   return (
     <section id={type} className={type}>
       <div className="main-container">
@@ -19,7 +17,7 @@ const ManyOptions = ({ type, options, title, inputName }: Props) => {
         <div className="options">
           {
             options.map(option =>
-              <Option {...props} {...option} key={option.id} />
+              <Option option={option} key={option.id} />
             )
           }
         </div>

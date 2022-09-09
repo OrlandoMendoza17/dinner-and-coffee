@@ -1,0 +1,31 @@
+@mixin title() {
+  @apply text-3xl font-bold pb-14; 
+  
+  @screen md{
+    @apply text-5xl pb-20;
+  }
+}
+
+@mixin section() {
+  @apply px-10 py-28;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .main-container{
+    max-width: 992px;
+    width: 100%;
+    
+    .title {
+      @include title;
+      @apply text-white;
+      
+      @screen md { 
+        @apply text-4xl;
+      }
+    }
+  }
+}
+
+
