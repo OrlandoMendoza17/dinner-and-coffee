@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import createError from 'http-errors'
 import type { NextApiRequest, NextApiResponse } from 'next'
+import { longDate } from 'utils/parseDate'
 import transporter from 'utils/transporter'
 
 type Body = {
@@ -48,7 +49,8 @@ export default async function handler(
       console.log(request.body)
 
       const { coffee, dinner, date } = request.body.state
-
+      const styles = "display: block; font-size: 20px;"
+      
       await transporter.sendMail({
         from: '☕ <coffee@example.com>', // sender address
         to: "ommv.17@gmail.com", // list of receivers
@@ -59,19 +61,22 @@ export default async function handler(
               <strong>Salida a Cenar 🥂</strong>
             </h2>
             
-            <span style="display: block; font-weight: bold; font-size: 20px;">
-              Fecha: ${date}
+            <span style="${styles}">
+              <span style="font-weight: bold;">Fecha: </span>
+              <span>${longDate(date)}</span>
             </span>
             
-            <span style="display: block; font-weight: bold; font-size: 20px;">
-              Café: ${coffee ? "SÍ" : "NO"}
+            <span style="${styles}">
+              <span style="font-weight: bold;">Café: </span>
+              <span>${coffee ? "SÍ ☕" : "NO"}</span>
             </span>
             
-            <span style="display: block; font-weight: bold; font-size: 20px;">
-              Comida: ${dinner.name} ${dinner.emoji}
+            <span style="${styles}">
+              <span style="font-weight: bold;">Comida: </span>
+              <span>${dinner.name} ${dinner.emoji}</span>
             </span>
             
-            <img style="width: 100%; padding: 20px 0 0 0;" src="${dinner.image}">
+            <img style="width: 400px; padding: 20px 0 0 0;" src="${dinner.image}">
           </div>
         `, // html body
       });
@@ -79,6 +84,7 @@ export default async function handler(
       console.log("Sent Email!")
 
     } catch (error) {
+      console.log(error)
       const { statusCode, message } = new createError.InternalServerError()
       response.status(statusCode).json({ message })
     }

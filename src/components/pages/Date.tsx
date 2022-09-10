@@ -8,28 +8,28 @@ const Date = () => {
     {
       id: 1,
       name: "Sábado 10 Sept.",
-      value: "2022-09-10",
+      value: "09/10/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 2,
       name: "Domingo 11 Sept.",
-      value: "2022-09-11",
+      value: "09/11/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 3,
       name: "Sábado 17 Sept.",
-      value: "2022-09-17",
+      value: "09/17/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 4,
       name: "Domingo 18 Sept.",
-      value: "2022-09-19",
+      value: "09/18/2022",
       inputName: "date",
       link: "/#Letter"
     },

@@ -15,13 +15,18 @@
       border: 1px solid #daddeb;
       padding: 40px 40px;
       border-radius: 10px;
+      
       display: grid;
-      grid-template-columns: 1fr auto;
+      grid-template-columns: 1fr;
       align-items: center;
       gap: 50px;
-
+      
       transition: .3s;
       position: relative;
+      
+      @screen md_lg{
+        grid-template-columns: 1fr auto;
+      }
       
       &::after{
         position: absolute;
@@ -54,27 +59,26 @@
           background-color: transparent;
         }
       }
-    }
-
-    #text {
-      position: relative;
-      z-index: 2;
-      div {
-        display: inline-block;
-
-        span {
-          transition: .3s;
+      
+      #text {
+        position: relative;
+        z-index: 2;
+        div {
           display: inline-block;
+  
+          span {
+            transition: .3s;
+            display: inline-block;
+          }
+  
+          &:hover span {
+            transform: translateY(-50px);
+          }
         }
-
-        &:hover span {
-          transform: translateY(-50px);
-        }
+  
+        cursor: default;
       }
-
-      cursor: default;
     }
-
 
     .BadgeOption {
       position: relative;

@@ -6,6 +6,9 @@ import Modal from '../widgets/Modal'
 import gaticoConJuguito from "@/assets/gatico-con-juguito.webp"
 import gaticoConGorra from "@/assets/gatico-con-gorra.webp"
 import axios from 'axios'
+import { shortDate } from 'utils/parseDate'
+import { formatISO } from 'date-fns'
+import { firstLetterUpperCase } from 'utils'
 
 
 type Props = {
@@ -101,7 +104,7 @@ const Letter = (props: Props) => {
               <hr />
               <div className="content">
 
-                <div id="text" className="text-7xl text-center text">
+                <div id="text" className="text-3xl sm:text-5xl md:text-7xl text-center text">
                   {coffee ? (<div><span>☕</span> + </div>) : ""}
                   <div><span>🎁</span></div>
                   {dinner.id ? <div> + <span>{dinner.emoji}</span></div> : ""}
@@ -131,7 +134,7 @@ const Letter = (props: Props) => {
       <Modal
         trigger={endWindow}
         color="bg-green-300 hover:bg-cyan-500"
-        buttonLabel="Nos vemos el Sábado 10"
+        buttonLabel={`Nos vemos el ${shortDate(date)}`}
         onClick={() => setEndWindow(false)}
       >
         <>
@@ -142,7 +145,7 @@ const Letter = (props: Props) => {
             className="cursor-pointer"
             alt="comiendo-cotufas"
           />
-          <strong>PD: Disfruta la canción 😉🎸</strong>
+          <strong className="text-xl pb-5">PD: Disfruta la canción 😉🎸</strong>
         </>
       </Modal>
     </>

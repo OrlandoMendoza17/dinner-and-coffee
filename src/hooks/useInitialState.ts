@@ -12,7 +12,7 @@ export const initialStateCtxt: InitialStateType = {
     link: "",
   },
   coffee: false,
-  date: "",
+  date: "11/02/1999",
 }
 
 const useInitialState = (): AppContextType => {

@@ -30,7 +30,7 @@
     .overlay{
       z-index: 99;
       position: absolute;
-      @apply p-20 text-white font-bold text-5xl text-center;
+      @apply p-20 text-white font-bold text-2xl sm:text-3xl md:text-5xl text-center;
       
       top: 0;
       bottom: 0;
