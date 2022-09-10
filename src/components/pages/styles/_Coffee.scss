@@ -30,7 +30,7 @@
     .overlay{
       z-index: 99;
       position: absolute;
-      @apply p-20 text-white font-bold text-3xl text-center;
+      @apply p-20 text-white font-bold text-5xl text-center;
       
       top: 0;
       bottom: 0;
@@ -38,10 +38,11 @@
       right: 0;
       
       background-color: rgba($color: #000000, $alpha: .5);
-      flex-direction: column;
+      
       display: flex;
+      flex-direction: column;
       justify-content: center;
-      align-items: flex-end;
+      align-items: center;
     }
   }
   

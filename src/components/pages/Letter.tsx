@@ -5,6 +5,7 @@ import { CalendarOptions, GoogleCalendar } from 'datebook'
 import Modal from '../widgets/Modal'
 import gaticoConJuguito from "@/assets/gatico-con-juguito.webp"
 import gaticoConGorra from "@/assets/gatico-con-gorra.webp"
+import axios from 'axios'
 
 
 type Props = {
@@ -13,11 +14,12 @@ type Props = {
 
 const Letter = (props: Props) => {
 
-  const { coffee, date, dinner } = useContext(AppContext).state
+  const { state } = useContext(AppContext)
+  const { coffee, date, dinner } = state
 
   const acdc = useRef<HTMLAudioElement | null>(null)
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const withCoffee = {
       start: new Date(`${date}T17:30:00`),
       end: new Date(`${date}T20:30:00`),
@@ -68,22 +70,27 @@ const Letter = (props: Props) => {
       // an event that recurs every two weeks:
     }
 
+
+
+
     const googleCalendarLink = new GoogleCalendar(config).render()
-   
-    if(acdc.current){
+
+    if (acdc.current) {
       acdc.current.volume = 0.1
       acdc.current.play()
-      console.log(acdc)
     }
-    
     window.open(googleCalendarLink)
     setEndWindow(true)
+
+    const response = await axios.post("/api/mail", { state })
+    debugger
+    console.log(response.data)
   }
 
   const alreadyFilledForm = (!!dinner.id && !!date)
 
   const [endWindow, setEndWindow] = useState(false)
-  
+
   return (
     <>
       {
@@ -127,13 +134,16 @@ const Letter = (props: Props) => {
         buttonLabel="Nos vemos el Sábado 10"
         onClick={() => setEndWindow(false)}
       >
-        <Image
-          width={350}
-          height={350}
-          src={gaticoConGorra}
-          className="cursor-pointer"
-          alt="comiendo-cotufas"
-        />
+        <>
+          <Image
+            width={300}
+            height={300}
+            src={gaticoConGorra}
+            className="cursor-pointer"
+            alt="comiendo-cotufas"
+          />
+          <strong>PD: Disfruta la canción 😉🎸</strong>
+        </>
       </Modal>
     </>
   )

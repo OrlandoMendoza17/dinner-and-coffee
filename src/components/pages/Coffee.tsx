@@ -20,7 +20,7 @@ const Coffee = () => {
       value: "true",
       action: () => {
         setSelected(true)
-        setTimeout(() => router.push("/#Date"), 10000)
+        setTimeout(() => router.push("/#Date"), 7000)
       }
     },
     {
@@ -40,8 +40,8 @@ const Coffee = () => {
     <section id="Coffee" className={`Coffee ${selected && "active"}`}>
       <div className="coffee-cover">
         <div className="overlay">
-          <p>&quot;Tengo ganas de invitarte un café pero tengo miedo de que se nos termine y no alcances a darte cuenta de que el café contigo es lo de menos&quot;</p>
-          <p className="pr-10 pt-10">- Emmanuel Zavala</p>
+          <p>&quot;Detras de una taza de café hay historias, amores y momentos inolvidables&quot;</p>
+          {/* <p className="pr-10 pt-10">- Emmanuel Zavala</p> */}
         </div>
       </div>
       <YesOrNo question="Vamos por un ☕ antes de la cena?" options={options} />

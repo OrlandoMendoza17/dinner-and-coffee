@@ -14,3 +14,7 @@ hr{
   width:  150px;
 }
 
+body::-webkit-scrollbar{
+  display: none;
+}
+

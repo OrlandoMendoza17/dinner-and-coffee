@@ -33,7 +33,7 @@ const Hero = () => {
         setNotAccepted(true)
         
         try {
-          const response = await axios.get("http://localhost:3000/api/mail")
+          const response = await axios.get("/api/mail")
           console.log(response.data)
         } catch (error: any) {
           console.log(error)
