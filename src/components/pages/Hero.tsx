@@ -7,6 +7,7 @@ import YesOrNo from "../widgets/YesOrNo"
 import Modal from "../widgets/Modal"
 import Image from "next/image"
 import gaticoExplotando from "@/assets/gatico-explotando.webp";
+import axios from "axios"
 
 const Hero = () => {
   const router = useRouter()
@@ -28,12 +29,19 @@ const Hero = () => {
       image: devilAngel,
       inputName: "accept",
       value: "false",
-      action: () => {
+      action: async () => {
         setNotAccepted(true)
+        
+        try {
+          const response = await axios.get("http://localhost:3000/api/mail")
+          console.log(response.data)
+        } catch (error: any) {
+          console.log(error)
+        }
       }
     }
   ]
-  
+
   const handleClick = () => {
     setNotAccepted(false)
   }

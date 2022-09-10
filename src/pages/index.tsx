@@ -7,10 +7,10 @@ import Coffee from '@/components/pages/Coffee'
 import Date from '@/components/pages/Date'
 import Letter from '@/components/pages/Letter'
 
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 
 const Home: NextPage = () => {
-
   return (
     <>
       <Head>
