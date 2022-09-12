@@ -13,3 +13,7 @@ export const longDate = (date: string) => {
   // It returns something like this:
   // "miércoles, 14 de octubre del 2020"
 }
+
+export const ISODate = (date: string) =>{
+  return format(new Date(date), "yyyy-MM-dd")
+}

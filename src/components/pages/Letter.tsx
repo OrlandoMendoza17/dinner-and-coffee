@@ -6,10 +6,7 @@ import Modal from '../widgets/Modal'
 import gaticoConJuguito from "@/assets/gatico-con-juguito.webp"
 import gaticoConGorra from "@/assets/gatico-con-gorra.webp"
 import axios from 'axios'
-import { shortDate } from 'utils/parseDate'
-import { formatISO } from 'date-fns'
-import { firstLetterUpperCase } from 'utils'
-
+import { ISODate, shortDate } from 'utils/parseDate'
 
 type Props = {
 
@@ -21,16 +18,16 @@ const Letter = (props: Props) => {
   const { coffee, date, dinner } = state
 
   const acdc = useRef<HTMLAudioElement | null>(null)
-
+  
   const handleClick = async () => {
     const withCoffee = {
-      start: new Date(`${date}T17:30:00`),
-      end: new Date(`${date}T20:30:00`),
+      start: new Date(`${ISODate(date)}T17:30:00`),
+      end: new Date(`${ISODate(date)}T20:30:00`),
     }
 
     const withoutCoffee = {
-      start: new Date(`${date}T18:30:00`),
-      end: new Date(`${date}T20:30:00`),
+      start: new Date(`${ISODate(date)}T18:30:00`),
+      end: new Date(`${ISODate(date)}T20:30:00`),
     }
 
     type date = {
@@ -73,20 +70,17 @@ const Letter = (props: Props) => {
       // an event that recurs every two weeks:
     }
 
-
-
-
     const googleCalendarLink = new GoogleCalendar(config).render()
 
     if (acdc.current) {
       acdc.current.volume = 0.1
       acdc.current.play()
     }
+
     window.open(googleCalendarLink)
     setEndWindow(true)
 
     const response = await axios.post("/api/mail", { state })
-    debugger
     console.log(response.data)
   }
 
@@ -124,9 +118,9 @@ const Letter = (props: Props) => {
                 </button>
 
               </div>
+              
             </div>
             <audio ref={acdc} src="https://mus9.gomusic.fm/9403bc84-ce3e-49b7-bd0d-3beab78972846d02.mp3"></audio>
-
           </section>
           :
           null
