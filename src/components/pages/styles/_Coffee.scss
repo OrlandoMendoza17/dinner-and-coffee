@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   transition: .3s;
-  // background-color: #603601;
+  @apply bg-white;
   
   .coffee-cover{
     z-index: 90;

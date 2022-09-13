@@ -1,9 +1,13 @@
+%ContentColor {
+  background: rgb(114, 255, 255);
+  background: linear-gradient(270deg, #72ffff 0%, #00d7ff 50%, #0096ff 100%);
+}
+
 .Letter {
   @include section;
-  // height: 100vh;
+  @apply bg-white;
 
   .main-container {
-
 
     .title {
       @apply text-black;
@@ -11,100 +15,119 @@
     }
 
     .content {
-      // @apply py-32;
-      border: 1px solid #daddeb;
+      @extend %ContentColor;
+
       padding: 40px 40px;
       border-radius: 10px;
-      
+
       display: grid;
       grid-template-columns: 1fr;
       align-items: center;
-      gap: 50px;
+      gap: 20px;
       
       transition: .3s;
       position: relative;
       
-      @screen md_lg{
-        grid-template-columns: 1fr auto;
-      }
-      
-      &::after{
-        position: absolute;
-        display: block;
-        content: "";
-        border-radius: 10px;
-        background-color: white;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        
-        transition: 1s;
-        // opacity: 1;
-      }
-      
-      &:hover {
-        background: rgb(114, 255, 255);
-        background: linear-gradient(270deg, #72ffff 0%, #00d7ff 50%, #0096ff 100%);
+      @screen md {
+        @apply bg-white;
+        border: 1px solid #daddeb;
+        gap: 50px;
 
-        .BadgeOption {
-          transform: translateY(0px);
+        &::after {
+          @apply bg-white;
+          position: absolute;
+          display: block;
+          content: "";
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
 
-          .label {
-            @apply border-cyan-400 text-black;
+          transition: 1s;
+          // opacity: 1;
+        }
+
+        &:hover {
+          @extend %ContentColor;
+          border-color: #72ffff;
+
+          .BadgeOption {
+            transform: translateY(0px);
+
+            .label {
+              border-color: #72ffff;
+            }
+            &:hover .label{
+              @apply text-black;
+            }
+          }
+
+          &::after {
+            background-color: transparent;
           }
         }
-        
-        &::after{
-          background-color: transparent;
-        }
       }
-      
+
+      @screen md_lg {
+        grid-template-columns: 1fr auto;
+      }
+
       #text {
         position: relative;
         z-index: 2;
+
         div {
           display: inline-block;
-  
+
           span {
             transition: .3s;
             display: inline-block;
           }
-  
+
           &:hover span {
             transform: translateY(-50px);
           }
         }
-  
+
         cursor: default;
       }
-    }
 
-    .BadgeOption {
-      position: relative;
-      z-index: 2;
-      outline: none;
-      
-      .label {
-        @apply bg-transparent border-transparent;
-        border-width: 1px;
-        border-style: solid;
+      .BadgeOption {
+        position: relative;
+        z-index: 2;
+        outline: none;
+        grid-row: 1 / 2;
+
+        .label {
+          border-width: 1px;
+          border-style: solid;
+          background-color: #0096ff;
+          border-color: #0096ff;
+          // color: black;
+          
+          @screen md{
+            @apply bg-transparent border-transparent;
+          }
+        }
+
+        transition: .3s;
+
+        transform: translateY(20px) scale(.9);
+
+        img {
+          transform: scale(.9) translateY(10px);
+        }
+        
+        
+        @screen md{
+          &:hover .label {
+            @apply border-transparent;
+            background-color: #38ebff;
+            // transform: translateY(-20px);
+          }
+        }
       }
 
-      transition: .3s;
-
-      &:hover .label {
-        @apply border-transparent text-white;
-        background-color: #0096ff;
-        color: white !important;
-        // transform: translateY(-20px);
-      }
-
-      transform: translateY(20px) scale(.9);
-
-      img {
-        transform: scale(.9) translateY(10px);
-      }
     }
   }
 }
