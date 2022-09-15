@@ -4,7 +4,7 @@ import { YesOrNoOption } from '../../../types'
 import AppContext from 'context'
 
 type Props = {
-  question: string,
+  question: JSX.Element,
   options: YesOrNoOption[],
 }
 

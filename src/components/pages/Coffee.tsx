@@ -44,7 +44,7 @@ const Coffee = () => {
           {/* <p className="pr-10 pt-10">- Emmanuel Zavala</p> */}
         </div>
       </div>
-      <YesOrNo question="Vamos por un ☕ antes de la cena?" options={options} />
+      <YesOrNo question={(<div>Vamos por un <img src="https://i.imgur.com/vyiRS5X.png" className="image" alt="" /> antes de la cena?</div>)} options={options} />
     </section>
   )
 }

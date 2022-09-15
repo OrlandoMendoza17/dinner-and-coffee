@@ -26,6 +26,16 @@
       grid-template-columns: repeat(2, auto);
     }
   }
+  
+  .image{
+    @apply mb-2 md:mb-5;
+    display: inline;
+    width: 25px;
+    
+    @screen md{
+      width: 45px;
+    }
+  }
 }
 
 .BadgeOption{
@@ -63,5 +73,13 @@
   }
   &:nth-of-type(2) input:checked + .label{
     @apply bg-red-500;
+  }
+}
+
+#Coffee .YesOrNo .image {
+  width: 45px;
+
+  @screen md {
+    width: 60px;
   }
 }

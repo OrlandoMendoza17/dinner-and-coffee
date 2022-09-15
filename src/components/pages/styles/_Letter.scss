@@ -87,9 +87,27 @@
           &:hover span {
             transform: translateY(-50px);
           }
+          
+          &:first-of-type .image{
+            width: 60px;
+            
+            @screen md{
+              width: 80px;
+            }
+          }
         }
 
         cursor: default;
+        
+        .image{
+          position: relative;
+          display: inline;
+          width: 50px;
+          
+          @screen md{
+            width: 70px;
+          }
+        }
       }
 
       .BadgeOption {

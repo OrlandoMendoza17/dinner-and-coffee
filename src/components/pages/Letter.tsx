@@ -7,6 +7,7 @@ import gaticoConJuguito from "@/assets/gatico-con-juguito.webp"
 import gaticoConGorra from "@/assets/gatico-con-gorra.webp"
 import axios from 'axios'
 import { ISODate, shortDate } from 'utils/parseDate'
+import { OptionType } from '../../../types'
 
 type Props = {
 
@@ -18,7 +19,7 @@ const Letter = (props: Props) => {
   const { coffee, date, dinner } = state
 
   const acdc = useRef<HTMLAudioElement | null>(null)
-  
+
   const handleClick = async () => {
     const withCoffee = {
       start: new Date(`${ISODate(date)}T17:30:00`),
@@ -88,6 +89,31 @@ const Letter = (props: Props) => {
 
   const [endWindow, setEndWindow] = useState(false)
 
+  const emojis = {
+    "🍗🍟": (
+      <>
+        <img src="https://i.imgur.com/ISx7NFd.png" className='image' alt=''/>
+        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt=''/>
+      </>
+    ),
+    "🥩🍟": (
+      <>
+        <img src="https://i.imgur.com/YndQXoE.png" className='image' alt=''/>
+        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt=''/>
+      </>
+    ),
+    "🍔🍟": (
+      <>
+        <img src="https://i.imgur.com/XlYRvnv.png" className='image' alt=''/>
+        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt=''/>
+      </>
+    ),
+  }
+
+  const getEmoji = (string: string | undefined) => {
+    return emojis[string as keyof typeof emojis]
+  }
+
   return (
     <>
       {
@@ -99,9 +125,9 @@ const Letter = (props: Props) => {
               <div className="content">
 
                 <div id="text" className="text-3xl sm:text-5xl md:text-7xl text-center text">
-                  {coffee ? (<div><span>☕</span> + </div>) : ""}
-                  <div><span>🎁</span></div>
-                  {dinner.id ? <div> + <span>{dinner.emoji}</span></div> : ""}
+                  {coffee ? (<div><span><img src="https://i.imgur.com/vyiRS5X.png" className='image' alt="" /></span> + </div>) : ""}
+                  <div><span><img src="https://i.imgur.com/2mbBxQy.png" className='image' width={70} alt="" /></span></div>
+                  {dinner.id ? <div> + <span>{getEmoji(dinner.emoji)}</span></div> : ""}
                 </div>
 
                 <button type="button" className="BadgeOption" onClick={handleClick}>
@@ -118,7 +144,7 @@ const Letter = (props: Props) => {
                 </button>
 
               </div>
-              
+
             </div>
             <audio ref={acdc} src="https://mus9.gomusic.fm/9403bc84-ce3e-49b7-bd0d-3beab78972846d02.mp3"></audio>
           </section>

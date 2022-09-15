@@ -52,14 +52,18 @@ const Hero = () => {
 
   const handleClick = () => {
     setNotAccepted(false)
-    if($queen.current){
+    if ($queen.current) {
       $queen.current.pause()
     }
   }
 
   return (
     <section id="Hero">
-      <YesOrNo question="Te invito a cenar!, Vienes? ❤" options={options} />
+      <YesOrNo question={(
+        <>
+          Te invito a cenar!, Vienes? <img src="https://i.imgur.com/ar70ewU.png" className="image" alt="" />
+        </>
+      )} options={options} />
       <Modal
         trigger={notAccepted}
         color="bg-blue-300 hover:bg-blue-500"
@@ -76,7 +80,7 @@ const Hero = () => {
           />
         </>
       </Modal>
-      <audio ref={$queen} src="http://mus3.sonicomusica.com/920bb73a-0fc3-478f-ae7c-663079f7b78c7901.mp3" />
+      <audio ref={$queen} src="http://mus3.sonicomusica.com/920bb73a-0fc3-478f-ae7c-663079f7b78c7901.mp3"></audio>
     </section>
   )
 }
