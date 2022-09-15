@@ -8,7 +8,7 @@
  
   .title{
     @include title;
-    @apply text-center;
+    @apply text-center text-black;
   }
   
   @screen md{
