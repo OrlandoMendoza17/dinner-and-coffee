@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useRef, useState } from "react"
 import gaticoFeliz from "@/assets/gatico-feliz.webp"
 import devilAngel from "@/assets/jack-devil-angel.gif"
 import { useRouter } from "next/router"
@@ -13,6 +13,8 @@ const Hero = () => {
   const router = useRouter()
 
   const [notAccepted, setNotAccepted] = useState(false)
+
+  const $queen = useRef<HTMLAudioElement | null>(null)
 
   const options: YesOrNoOption[] = [
     {
@@ -31,7 +33,13 @@ const Hero = () => {
       value: "false",
       action: async () => {
         setNotAccepted(true)
-        
+
+        if ($queen.current) {
+          $queen.current.currentTime = 39.7
+          $queen.current.volume = .5
+          $queen.current.play()
+        }
+
         try {
           const response = await axios.get("/api/mail")
           console.log(response.data)
@@ -44,6 +52,9 @@ const Hero = () => {
 
   const handleClick = () => {
     setNotAccepted(false)
+    if($queen.current){
+      $queen.current.pause()
+    }
   }
 
   return (
@@ -55,14 +66,17 @@ const Hero = () => {
         buttonLabel="Intenta de nuevo"
         onClick={handleClick}
       >
-        <Image
-          width={350}
-          height={350}
-          src={gaticoExplotando}
-          className="cursor-pointer"
-          alt="comiendo-cotufas"
-        />
+        <>
+          <Image
+            width={350}
+            height={350}
+            src={gaticoExplotando}
+            className="cursor-pointer"
+            alt="comiendo-cotufas"
+          />
+        </>
       </Modal>
+      <audio ref={$queen} src="http://mus3.sonicomusica.com/920bb73a-0fc3-478f-ae7c-663079f7b78c7901.mp3" />
     </section>
   )
 }
