@@ -165,7 +165,7 @@ const Letter = (props: Props) => {
             className="cursor-pointer"
             alt="comiendo-cotufas"
           />
-          <strong className="text-xl pb-5">PD: Disfruta la canción 😉🎸</strong>
+          <strong className="text-xl text-black pb-5">PD: Disfruta la canción 😉🎸</strong>
         </>
       </Modal>
     </>
