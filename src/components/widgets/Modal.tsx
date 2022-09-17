@@ -4,7 +4,7 @@ type Props = {
   trigger: boolean,
   buttonLabel: string,
   color: string,
-  onClick: (event: FormEvent<HTMLButtonElement>) => void,
+  onClick: (event: FormEvent<HTMLDivElement>) => void,
   children: JSX.Element
 }
 
@@ -14,11 +14,11 @@ const Modal = ({ trigger, onClick, color, buttonLabel, children }: Props) => {
       {
         trigger &&
         <div className="modal-overlay">
-          <div className="Modal">
+          <div className="Modal" onClick={onClick} >
             <button className="close-button">X</button>
             <div className="container">
               {children}
-              <button onClick={onClick} className={color}>
+              <button className={color}>
                 {buttonLabel}
               </button>
             </div>

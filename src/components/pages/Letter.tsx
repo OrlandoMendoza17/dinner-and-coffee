@@ -65,7 +65,7 @@ const Letter = (props: Props) => {
         },
         {
           name: 'Leomarby Gonzalez',
-          email: 'leomarby@yahoo.com'
+          email: 'leomarbygb@gmail.com'
         }
       ],
       // an event that recurs every two weeks:
@@ -120,7 +120,7 @@ const Letter = (props: Props) => {
         alreadyFilledForm ?
           <section id="Letter" className="Letter">
             <div className="main-container">
-              <h2 className="title">Agenda en el calendario</h2>
+              <h2 className="title">Agenda un recordatorio en el calendario</h2>
               <hr />
               <div className="content">
 

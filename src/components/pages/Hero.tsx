@@ -49,9 +49,10 @@ const Hero = () => {
       }
     }
   ]
-
+  
   const handleClick = () => {
     setNotAccepted(false)
+    router.push("#Hero")
     if ($queen.current) {
       $queen.current.pause()
     }
@@ -61,13 +62,13 @@ const Hero = () => {
     <section id="Hero">
       <YesOrNo question={(
         <>
-          Te invito a cenar!, Vienes? <img src="https://i.imgur.com/ar70ewU.png" className="image" alt="" />
+          Leo, te invito a cenar!, Vienes? <img src="https://i.imgur.com/ar70ewU.png" className="image" alt="" />
         </>
       )} options={options} />
       <Modal
         trigger={notAccepted}
         color="bg-blue-300 hover:bg-blue-500 text-xl"
-        buttonLabel="Intenta de nuevo"
+        buttonLabel="Quiero intentar de nuevo! 😬"
         onClick={handleClick}
       >
         <>

@@ -37,7 +37,7 @@ const Date = () => {
 
   return (
     <ManyOptions
-      title="Qué día te prefieres ir a cenar?"
+      title="Qué día prefieres ir a cenar?"
       type="Date"
       options={dishes}
     />
