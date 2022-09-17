@@ -18,7 +18,9 @@ const Modal = ({ trigger, onClick, color, buttonLabel, children }: Props) => {
             <button className="close-button">X</button>
             <div className="container">
               {children}
-              <button onClick={onClick} className={color}>{buttonLabel}</button>
+              <button onClick={onClick} className={color}>
+                {buttonLabel}
+              </button>
             </div>
           </div>
         </div>

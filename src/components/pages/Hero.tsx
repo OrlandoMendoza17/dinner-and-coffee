@@ -66,7 +66,7 @@ const Hero = () => {
       )} options={options} />
       <Modal
         trigger={notAccepted}
-        color="bg-blue-300 hover:bg-blue-500"
+        color="bg-blue-300 hover:bg-blue-500 text-xl"
         buttonLabel="Intenta de nuevo"
         onClick={handleClick}
       >
@@ -80,7 +80,8 @@ const Hero = () => {
           />
         </>
       </Modal>
-      <audio ref={$queen} src="http://mus3.sonicomusica.com/920bb73a-0fc3-478f-ae7c-663079f7b78c7901.mp3"></audio>
+                               
+      <audio ref={$queen} src="https://mus2.gomusic.fm/aad553f3-7a7e-49be-9e04-3bca42aba01f6600.mp3"></audio>
     </section>
   )
 }

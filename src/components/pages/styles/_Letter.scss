@@ -69,7 +69,7 @@
       }
 
       @screen md_lg {
-        grid-template-columns: 1fr auto;
+        grid-template-columns: auto 1fr;
       }
 
       #text {

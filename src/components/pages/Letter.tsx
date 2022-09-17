@@ -153,8 +153,8 @@ const Letter = (props: Props) => {
       }
       <Modal
         trigger={endWindow}
-        color="bg-green-300 hover:bg-cyan-500"
-        buttonLabel={`Nos vemos el ${shortDate(date)}`}
+        color="bg-green-300 hover:bg-cyan-500 text-lg"
+        buttonLabel={`Entonches nos vemos el ${shortDate(date)}`}
         onClick={() => setEndWindow(false)}
       >
         <>
@@ -165,7 +165,9 @@ const Letter = (props: Props) => {
             className="cursor-pointer"
             alt="comiendo-cotufas"
           />
-          <strong className="text-xl text-black pb-5">PD: Disfruta la canción 😉🎸</strong>
+          <strong className="text-xl text-black pt-5">
+            PD: Disfruta la canción 😉🎸
+          </strong>
         </>
       </Modal>
     </>
