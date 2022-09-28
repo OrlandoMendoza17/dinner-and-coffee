@@ -20,7 +20,7 @@ const Coffee = () => {
       value: "true",
       action: () => {
         setSelected(true)
-        setTimeout(() => router.push("/#Date"), 7000)
+        setTimeout(() => router.push("/#Date"), 6000)
       }
     },
     {

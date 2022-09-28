@@ -39,7 +39,7 @@ const Hero = () => {
 
         if ($queen.current) {
           $queen.current.currentTime = 39.7
-          $queen.current.volume = .5
+          $queen.current.volume = .75
           $queen.current.play()
         }
 

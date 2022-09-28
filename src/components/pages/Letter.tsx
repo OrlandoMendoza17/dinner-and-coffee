@@ -78,7 +78,7 @@ const Letter = (props: Props) => {
 
     if (acdc.current) {
       setHidden(false)
-      acdc.current.volume = 0.1
+      acdc.current.volume = 0.75
       acdc.current.play()
     }
 
