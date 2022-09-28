@@ -14,11 +14,11 @@ const Modal = ({ trigger, onClick, color, buttonLabel, children }: Props) => {
       {
         trigger &&
         <div className="modal-overlay">
-          <div className="Modal" onClick={onClick} >
+          <div className="Modal">
             
             <button className="close-button">X</button>
            
-            <div className="container">
+            <div className="container" onClick={onClick}>
               {children}
               
               <button className={color}>

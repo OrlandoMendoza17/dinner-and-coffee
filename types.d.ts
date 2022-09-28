@@ -35,3 +35,10 @@ export type AppContextType = {
   state: InitialStateType,
   saveState: (newState: DTOsaveState) => void
 }
+
+export type IconProps = {
+  size: number,
+  fill?: string,
+  viewBox?: string,
+  children?: JSX.Element,
+}

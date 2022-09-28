@@ -1,3 +1,4 @@
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -7,8 +8,6 @@ import Coffee from '@/components/pages/Coffee'
 import Date from '@/components/pages/Date'
 import Letter from '@/components/pages/Letter'
 
-import React, { useEffect } from 'react'
-import axios from 'axios'
 
 const Home: NextPage = () => {
   return (
@@ -26,7 +25,7 @@ const Home: NextPage = () => {
         <Coffee />
         <Date />
         <Letter />
-
+          
       </main>
     </>
   )

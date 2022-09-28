@@ -8,6 +8,7 @@ import gaticoConGorra from "@/assets/gatico-con-gorra.webp"
 import axios from 'axios'
 import { ISODate, shortDate } from 'utils/parseDate'
 import { OptionType } from '../../../types'
+import AudioPlayer from '../widgets/AudioPlayer'
 
 type Props = {
 
@@ -18,6 +19,8 @@ const Letter = (props: Props) => {
   const { state } = useContext(AppContext)
   const { coffee, date, dinner } = state
 
+  const [displaySong, setDisplaySong] = useState(true)
+  const [hidden, setHidden] = useState(true)
   const acdc = useRef<HTMLAudioElement | null>(null)
 
   const handleClick = async () => {
@@ -74,6 +77,7 @@ const Letter = (props: Props) => {
     const googleCalendarLink = new GoogleCalendar(config).render()
 
     if (acdc.current) {
+      setHidden(false)
       acdc.current.volume = 0.1
       acdc.current.play()
     }
@@ -92,20 +96,20 @@ const Letter = (props: Props) => {
   const emojis = {
     "🍗🍟": (
       <>
-        <img src="https://i.imgur.com/ISx7NFd.png" className='image' alt=''/>
-        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt=''/>
+        <img src="https://i.imgur.com/ISx7NFd.png" className='image' alt='' />
+        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt='' />
       </>
     ),
     "🥩🍟": (
       <>
-        <img src="https://i.imgur.com/YndQXoE.png" className='image' alt=''/>
-        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt=''/>
+        <img src="https://i.imgur.com/YndQXoE.png" className='image' alt='' />
+        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt='' />
       </>
     ),
     "🍔🍟": (
       <>
-        <img src="https://i.imgur.com/XlYRvnv.png" className='image' alt=''/>
-        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt=''/>
+        <img src="https://i.imgur.com/XlYRvnv.png" className='image' alt='' />
+        <img src="https://i.imgur.com/pitXDpg.png" className='image' alt='' />
       </>
     ),
   }
@@ -146,7 +150,12 @@ const Letter = (props: Props) => {
               </div>
 
             </div>
-            <audio ref={acdc} src="https://mus9.gomusic.fm/9403bc84-ce3e-49b7-bd0d-3beab78972846d02.mp3"></audio>
+            <AudioPlayer
+              song={acdc}
+              hidden={hidden}
+              closePlayer={() => setHidden(true)}
+              audio="https://mus9.gomusic.fm/9403bc84-ce3e-49b7-bd0d-3beab78972846d02.mp3"
+            />
           </section>
           :
           null

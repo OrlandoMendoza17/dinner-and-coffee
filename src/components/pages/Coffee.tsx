@@ -40,7 +40,7 @@ const Coffee = () => {
     <section id="Coffee" className={`Coffee ${selected && "active"}`}>
       <div className="coffee-cover">
         <div className="overlay">
-          <p>&quot;Detras de una taza de café hay historias, amores y momentos inolvidables&quot;</p>
+          <p>&quot;Detras de una taza de café hay historias y momentos inolvidables&quot;</p>
           {/* <p className="pr-10 pt-10">- Emmanuel Zavala</p> */}
         </div>
       </div>

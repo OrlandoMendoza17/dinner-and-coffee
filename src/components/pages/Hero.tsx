@@ -8,11 +8,13 @@ import Modal from "../widgets/Modal"
 import Image from "next/image"
 import gaticoExplotando from "@/assets/gatico-explotando.webp";
 import axios from "axios"
+import AudioPlayer from "../widgets/AudioPlayer"
 
 const Hero = () => {
   const router = useRouter()
 
   const [notAccepted, setNotAccepted] = useState(false)
+  const [hidden, setHidden] = useState(true)
 
   const $queen = useRef<HTMLAudioElement | null>(null)
 
@@ -33,6 +35,7 @@ const Hero = () => {
       value: "false",
       action: async () => {
         setNotAccepted(true)
+        setHidden(false)
 
         if ($queen.current) {
           $queen.current.currentTime = 39.7
@@ -49,9 +52,10 @@ const Hero = () => {
       }
     }
   ]
-  
+
   const handleClick = () => {
     setNotAccepted(false)
+    setHidden(true)
     router.push("#Hero")
     if ($queen.current) {
       $queen.current.pause()
@@ -65,6 +69,7 @@ const Hero = () => {
           Leo, te invito a cenar!, Vienes? <img src="https://i.imgur.com/ar70ewU.png" className="image" alt="" />
         </>
       )} options={options} />
+
       <Modal
         trigger={notAccepted}
         color="bg-blue-300 hover:bg-blue-500 text-xl"
@@ -81,8 +86,13 @@ const Hero = () => {
           />
         </>
       </Modal>
-                               
-      <audio ref={$queen} src="https://mus2.gomusic.fm/aad553f3-7a7e-49be-9e04-3bca42aba01f6600.mp3"></audio>
+      <AudioPlayer
+        hidden={hidden}
+        song={$queen}
+        closePlayer={() => setHidden(true)}
+        audio="https://mus2.gomusic.fm/aad553f3-7a7e-49be-9e04-3bca42aba01f6600.mp3"
+      />
+
     </section>
   )
 }
