@@ -7,29 +7,29 @@ const Date = () => {
   const dishes: OptionType[] = [
     {
       id: 1,
-      name: "Sábado 1 Oct.",
-      value: "10/01/2022",
+      name: "Sábado 22 Oct.",
+      value: "10/22/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 2,
-      name: "Domingo 2 Oct.",
-      value: "10/02/2022",
+      name: "Domingo 23 Oct.",
+      value: "10/23/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 3,
-      name: "Sábado 8 Oct.",
-      value: "10/08/2022",
+      name: "Sábado 29 Oct.",
+      value: "10/29/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 4,
-      name: "Domingo 9 Oct.",
-      value: "10/09/2022",
+      name: "Domingo 30 Oct.",
+      value: "10/30/2022",
       inputName: "date",
       link: "/#Letter"
     },

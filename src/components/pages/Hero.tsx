@@ -29,7 +29,7 @@ const Hero = () => {
     },
     {
       type: "NO",
-      label: "Ahora no, lo siento!",
+      label: "No quiero, lo siento!",
       image: devilAngel,
       inputName: "accept",
       value: "false",

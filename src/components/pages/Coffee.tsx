@@ -14,7 +14,7 @@ const Coffee = () => {
   const options: YesOrNoOption[] = [
     {
       type: "YES",
-      label: "Me encataría!",
+      label: "Me encantaría!",
       image: florkCafe,
       inputName: "coffee",
       value: "true",
