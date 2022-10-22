@@ -5,13 +5,13 @@ import ManyOptions from '../widgets/ManyOptions';
 const Date = () => {
 
   const dishes: OptionType[] = [
-    {
-      id: 1,
-      name: "Sábado 22 Oct.",
-      value: "10/22/2022",
-      inputName: "date",
-      link: "/#Letter"
-    },
+    // {
+    //   id: 1,
+    //   name: "Sábado 22 Oct.",
+    //   value: "10/22/2022",
+    //   inputName: "date",
+    //   link: "/#Letter"
+    // },
     {
       id: 2,
       name: "Domingo 23 Oct.",
