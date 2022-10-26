@@ -22,14 +22,14 @@ const Date = () => {
     {
       id: 3,
       name: "Sábado 5 Nov.",
-      value: "10/05/2022",
+      value: "11/05/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 4,
       name: "Domingo 6 Nov.",
-      value: "10/06/2022",
+      value: "11/06/2022",
       inputName: "date",
       link: "/#Letter"
     },
