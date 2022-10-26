@@ -9,6 +9,7 @@ import axios from 'axios'
 import { ISODate, shortDate } from 'utils/parseDate'
 import { OptionType } from '../../../types'
 import AudioPlayer from '../widgets/AudioPlayer'
+import { useRouter } from 'next/router'
 
 type Props = {
 
@@ -21,72 +22,85 @@ const Letter = (props: Props) => {
 
   const [displaySong, setDisplaySong] = useState(true)
   const [hidden, setHidden] = useState(true)
+
   const acdc = useRef<HTMLAudioElement | null>(null)
 
+  const router = useRouter()
+  
   const handleClick = async () => {
-    const withCoffee = {
-      start: new Date(`${ISODate(date)}T17:30:00`),
-      end: new Date(`${ISODate(date)}T20:30:00`),
+    debugger
+    const DEFAULT_DATE = "11/02/1999"
+    
+    if(date !== DEFAULT_DATE){
+      
+      const withCoffee = {
+        start: new Date(`${ISODate(date)}T17:30:00`),
+        end: new Date(`${ISODate(date)}T20:30:00`),
+      }
+  
+      const withoutCoffee = {
+        start: new Date(`${ISODate(date)}T18:30:00`),
+        end: new Date(`${ISODate(date)}T20:30:00`),
+      }
+  
+      type date = {
+        start: Date,
+        end: Date,
+      }
+  
+      let dateTimes: date
+  
+      if (coffee) {
+        dateTimes = withCoffee;
+      } else {
+        dateTimes = withoutCoffee;
+      }
+  
+      const coffeeLocation = "987 Restaurant (☕), "
+      const dinnerLocation = `La guacareña(${dinner.emoji})`
+  
+      const config: CalendarOptions = {
+        title: 'Salida a Cenar 🥂',
+        location: `${coffee ? coffeeLocation : ""}${dinnerLocation}`,
+        description: `
+          <strong>Actividades:</strong>\n
+          
+          ${coffee ? "-> Cafecito ☕\n" : ""}
+          -> Sorpresa 🎁\n
+          -> ${dinner.name} ${dinner.emoji}
+        `,
+        ...dateTimes,
+        attendees: [
+          {
+            name: 'Orlando Mendoza',
+            email: 'ommv.17@gmail.com',
+          },
+          {
+            name: 'Leomarby Gonzalez',
+            email: 'leomarbygb@gmail.com'
+          }
+        ],
+        // an event that recurs every two weeks:
+      }
+  
+      const googleCalendarLink = new GoogleCalendar(config).render()
+  
+      if (acdc.current) {
+        setHidden(false)
+        acdc.current.volume = 0.75
+        acdc.current.play()
+      }
+  
+      window.open(googleCalendarLink)
+      setEndWindow(true)
+  
+      const response = await axios.post("/api/mail", { state })
+      console.log(response.data)
+      
+    }else{
+      router.push("/#Date")
+      setTimeout(()=> alert("No has elegido una fecha :("), 500)
     }
-
-    const withoutCoffee = {
-      start: new Date(`${ISODate(date)}T18:30:00`),
-      end: new Date(`${ISODate(date)}T20:30:00`),
-    }
-
-    type date = {
-      start: Date,
-      end: Date,
-    }
-
-    let dateTimes: date
-
-    if (coffee) {
-      dateTimes = withCoffee;
-    } else {
-      dateTimes = withoutCoffee;
-    }
-
-    const coffeeLocation = "987 Restaurant (☕), "
-    const dinnerLocation = `La guacareña(${dinner.emoji})`
-
-    const config: CalendarOptions = {
-      title: 'Salida a Cenar 🥂',
-      location: `${coffee ? coffeeLocation : ""}${dinnerLocation}`,
-      description: `
-        <strong>Actividades:</strong>\n
-        
-        ${coffee ? "-> Cafecito ☕\n" : ""}
-        -> Sorpresa 🎁\n
-        -> ${dinner.name} ${dinner.emoji}
-      `,
-      ...dateTimes,
-      attendees: [
-        {
-          name: 'Orlando Mendoza',
-          email: 'ommv.17@gmail.com',
-        },
-        {
-          name: 'Leomarby Gonzalez',
-          email: 'leomarbygb@gmail.com'
-        }
-      ],
-      // an event that recurs every two weeks:
-    }
-
-    const googleCalendarLink = new GoogleCalendar(config).render()
-
-    if (acdc.current) {
-      setHidden(false)
-      acdc.current.volume = 0.75
-      acdc.current.play()
-    }
-
-    window.open(googleCalendarLink)
-    setEndWindow(true)
-
-    const response = await axios.post("/api/mail", { state })
-    console.log(response.data)
   }
 
   const alreadyFilledForm = (!!dinner.id && !!date)

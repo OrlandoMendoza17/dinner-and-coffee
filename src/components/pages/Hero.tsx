@@ -64,11 +64,15 @@ const Hero = () => {
 
   return (
     <section id="Hero">
-      <YesOrNo question={(
-        <>
-          Leo, te invito a cenar!, Vienes? <img src="https://i.imgur.com/ar70ewU.png" className="image" alt="" />
-        </>
-      )} options={options} />
+
+      <YesOrNo
+        options={options}
+        question={(
+          <>
+            Leo, te invito a cenar!, Vienes? <img src="https://i.imgur.com/ar70ewU.png" className="image" alt="" />
+          </>
+        )}
+      />
 
       <Modal
         trigger={notAccepted}
@@ -76,16 +80,15 @@ const Hero = () => {
         buttonLabel="Quiero intentar de nuevo! 😬"
         onClick={handleClick}
       >
-        <>
-          <Image
-            width={350}
-            height={350}
-            src={gaticoExplotando}
-            className="cursor-pointer"
-            alt="comiendo-cotufas"
-          />
-        </>
+        <Image
+          width={350}
+          height={350}
+          src={gaticoExplotando}
+          className="cursor-pointer"
+          alt="comiendo-cotufas"
+        />
       </Modal>
+
       <AudioPlayer
         hidden={hidden}
         song={$queen}
