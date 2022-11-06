@@ -8,6 +8,7 @@ import Coffee from '@/components/pages/Coffee'
 import Date from '@/components/pages/Date'
 import Letter from '@/components/pages/Letter'
 import Loader from '@/components/widgets/Loader'
+import axios from 'axios'
 
 
 const Home: NextPage = () => {
@@ -16,11 +17,19 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     document.body.classList.add("overflow-hidden")
-    
+
     setTimeout(() => {
       setLoading(false)
       document.body.classList.remove("overflow-hidden")
+
+      axios.post("/api/notification")
+        .then((response) => {
+          debugger
+          console.log(response.data)
+        })
+
     }, 5000)
+
   }, [])
 
 
