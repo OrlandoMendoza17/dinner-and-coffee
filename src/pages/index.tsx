@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 
@@ -7,9 +7,23 @@ import Menu from '@/components/pages/Menu'
 import Coffee from '@/components/pages/Coffee'
 import Date from '@/components/pages/Date'
 import Letter from '@/components/pages/Letter'
+import Loader from '@/components/widgets/Loader'
 
 
 const Home: NextPage = () => {
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden")
+    
+    setTimeout(() => {
+      setLoading(false)
+      document.body.classList.remove("overflow-hidden")
+    }, 5000)
+  }, [])
+
+
   return (
     <>
       <Head>
@@ -18,14 +32,19 @@ const Home: NextPage = () => {
         <link rel="icon" href="/hambuger.svg" />
       </Head>
 
-      <main className="">
+      <main className={`${loading ? "overflow-hidden" : ""}`}>
+
+        {
+          loading &&
+          <Loader />
+        }
 
         <Hero />
         <Menu />
         <Coffee />
         <Date />
         <Letter />
-          
+
       </main>
     </>
   )

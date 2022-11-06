@@ -23,7 +23,7 @@
       display: grid;
       grid-template-columns: 1fr;
       align-items: center;
-      gap: 20px;
+      gap: 50px;
       
       transition: .3s;
       position: relative;
@@ -31,7 +31,6 @@
       @screen md {
         @apply bg-white;
         border: 1px solid #daddeb;
-        gap: 50px;
 
         &::after {
           @apply bg-white;
