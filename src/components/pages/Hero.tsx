@@ -93,7 +93,7 @@ const Hero = () => {
         hidden={hidden}
         song={$queen}
         closePlayer={() => setHidden(true)}
-        audio="https://mus2.gomusic.fm/aad553f3-7a7e-49be-9e04-3bca42aba01f6600.mp3"
+        audio="https://drive.google.com/u/0/uc?id=0B4LOzioZvYiXUXZ0Ri1PSFNySzQ&export=download"
       />
 
     </section>

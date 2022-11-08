@@ -168,7 +168,7 @@ const Letter = (props: Props) => {
               song={acdc}
               hidden={hidden}
               closePlayer={() => setHidden(true)}
-              audio="https://mus2.gomusic.fm/c22df2fe-3102-4b2e-9cb0-f46a1f36a9ce6600.mp3"
+              audio="https://drive.google.com/u/0/uc?id=1jYwdwtARo0N9rynOaSbQm5V7Y886GoVW&export=download"
             />
           </section>
           :

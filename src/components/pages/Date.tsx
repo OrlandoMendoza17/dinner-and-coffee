@@ -8,14 +8,14 @@ const Date = () => {
     {
       id: 1,
       name: "Sábado 12 Nov.",
-      value: "10/12/2022",
+      value: "11/12/2022",
       inputName: "date",
       link: "/#Letter"
     },
     {
       id: 2,
       name: "Domingo 13 Nov.",
-      value: "10/13/2022",
+      value: "11/13/2022",
       inputName: "date",
       link: "/#Letter"
     },
